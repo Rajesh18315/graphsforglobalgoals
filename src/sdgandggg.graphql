@@ -1,0 +1,47 @@
+type SDG {
+sdgNo: Int
+sdgName: String
+focuson: String
+survey: [Feedback] @relationship(type:"CONTRIBUTES", direction:IN)
+}
+type Organization {
+orgName: String
+userPartner: User @relationship (type:"WORKS", direction: IN)
+orgcont:[SDG] @relationship (type:"CONTRIBUTES_TO", direction: OUT) 
+}
+type Location{
+country: String
+state: String
+city: String
+orgLoc: Organization @relationship(type:"LOCATED_IN", direction:IN)
+userLoc: User @relationship(type:"BELONGS_TO", direction:IN)
+
+}
+type Event{
+eventName: String
+eventType: String
+orgEvent:[Organization] @relationship(type:"CONDUCTS",direction:IN)
+eventLoc: Location @relationship(type:"HAPPENED_AT", direction:OUT)
+eventSdg:[SDG] @relationship (type:"FOCUS_ON", direction:OUT)
+}
+
+type User{
+userID: ID! 
+userName: String
+role: String
+userParticipates: Organization @relationship(type:"VOLUNTEER", direction:OUT)
+userRole: Event @relationship(type:"ROLE", direction:OUT)
+userLoc:Location @relationship(type:"CONDUCTED_AT", direction:OUT)
+userSDG: SDG  @relationship(type:"CONTRIBUTED_GOAL", direction:OUT)
+}
+type Feedback {
+rating: String    
+feedbackText: String
+createdAt: DateTime @timestamp
+sdgReview: SDG @relationship(type: "FEEDBACK", direction: OUT)
+userFeed: User @relationship(type: "WROTE", direction: IN)
+}
+
+
+
+
