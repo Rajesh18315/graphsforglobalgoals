@@ -22,5 +22,6 @@ To address and highlight the importance of correlation between SDG’s, we had c
 
 Below is Schema , we developed , where We can see here User volunteers through an organization, and conducts an event at certain location.
 Organizations that contribute to multiple SDG’s focusing on multiple key areas, all correlated data has to be recorded for analysis.
-![GRAPHQL](https://user-images.githubusercontent.com/83447666/120673455-d1ea1800-c4b0-11eb-9067-3fdd99b5e6ae.JPG)
+![Neo4jschema](https://user-images.githubusercontent.com/83447666/121158920-5ac5d280-c868-11eb-9f3c-25726cad8f53.png)
+
 
